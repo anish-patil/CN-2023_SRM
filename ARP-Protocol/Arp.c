@@ -32,10 +32,10 @@ printf("IP address Entered '%s' is not valid \n",ip);
 exit(0);
 }
 memcpy(&myarp.arp_pa,&sin,sizeof(myarp.arp_pa));
-strcpy(myarp.arp_dev,"echo");
+strcpy(myarp.arp_dev,"wlo1");
 int d=socket(AF_INET,SOCK_DGRAM,0);
 printf("\nSend ARP request\n");
-if(ioctl(sd,SIOCGARP,&myarp)==1)
+if(ioctl(d,SIOCGARP,&myarp)==1)
 {
 printf("No Entry in ARP cache for '%s'\n",ip);
 exit(0);
